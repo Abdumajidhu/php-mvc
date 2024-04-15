@@ -1,6 +1,12 @@
 <?php
-require "model.php";
-$model = new Model;
-$products = $model->getData();
+require "src/controllers/products.php";
+$controller = new Products;
 
-require "view.php";
+$action = $_GET["action"];
+
+if ($action === "index"){
+    $controller->index();
+} 
+elseif ($action === "show"){
+    $controller->show();
+} 
